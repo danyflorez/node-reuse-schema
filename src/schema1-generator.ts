@@ -1,13 +1,9 @@
-import fs from "fs";
+import createJsonFile from "./create-json-file";
 import { reusableSchema } from "./reusable-schema";
 
 const schema1Generator = () => {
-  const file = fs.createWriteStream("schema1Generator.json");
-
   const schema = [{ name: "json", ...reusableSchema }];
-
-  file.write(JSON.stringify(schema, null, 2));
-  file.end();
+  createJsonFile("schema1Generator.json", schema)
 };
 
 export default schema1Generator;
